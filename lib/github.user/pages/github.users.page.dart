@@ -15,6 +15,11 @@ class UsersPage extends StatefulWidget {
 class _UsersPageState extends State<UsersPage> {
   String query = '';
   TextEditingController queryText = new TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    context.read<UsersBloc>().add(SearchAllUsersEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,17 +71,16 @@ class _UsersPageState extends State<UsersPage> {
               child: Column(
                 children: [
                   Text(
-                    "Page ${state.currentPage}/${state.totalPages}",
+                    state.currentPage!=null?"Page ${state.currentPage}/${state.totalPages}":"",
                     style: TextStyle(color: Colors.blue, fontSize: 20),
                   ),
                   Expanded(
                     child: LazyLoadScrollView(
                       onEndOfPage: () {
                         context.read<UsersBloc>().add(NextPageEvent(
-                          keyword: state.currentKeyword,
-                          page:state.currentPage+1,
-                          pageSize: state.pageSize
-                        ));
+                            keyword: state.currentKeyword,
+                            page: state.currentPage + 1,
+                            pageSize: state.pageSize));
                       },
                       child: ListView.builder(
                           itemCount: state.listUsers.items.length,

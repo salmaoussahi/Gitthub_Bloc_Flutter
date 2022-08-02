@@ -24,6 +24,17 @@ class UsersBloc extends Bloc<UserEvent, UsersState> {
       }
     });
 
+    on((SearchAllUsersEvent event, emit) async {
+      emit(SearchUsersLoadingState());
+      try {
+        ListUsers listUsers = await userRepository.searchallUsers();
+        emit(SearchUsersSuccessState(
+          listUsers: listUsers,
+        ));
+      } catch (e) {
+        emit(SearchUsersErrorState(errorMessage: e.toString()));
+      }
+    });
     on((NextPageEvent event, emit) async {
       emit(SearchUsersLoadingState());
       try {
@@ -36,7 +47,6 @@ class UsersBloc extends Bloc<UserEvent, UsersState> {
             totalPages: totalPages,
             pageSize: event.pageSize,
             currentKeyword: event.keyword));
-       
       } catch (e) {
         emit(SearchUsersErrorState(errorMessage: e.toString()));
       }

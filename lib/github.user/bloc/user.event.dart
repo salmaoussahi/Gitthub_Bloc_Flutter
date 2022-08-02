@@ -10,6 +10,8 @@ class SearchUsersEvent extends UserEvent {
   SearchUsersEvent({this.keyword, this.page, this.pageSize});
 }
 
+class SearchAllUsersEvent extends UserEvent {}
+
 class NextPageEvent extends SearchUsersEvent {
   NextPageEvent({String keyword, int page, int pageSize})
       : super(keyword: keyword, page: page, pageSize: pageSize);

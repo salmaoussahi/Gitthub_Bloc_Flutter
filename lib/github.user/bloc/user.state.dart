@@ -12,7 +12,11 @@ class SearchUsersSuccessState extends UsersState {
   int pageSize;
   String currentKeyword;
   SearchUsersSuccessState(
-      {this.listUsers, this.currentPage, this.totalPages, this.pageSize,this.currentKeyword});
+      {this.listUsers,
+      this.currentPage,
+      this.totalPages,
+      this.pageSize,
+      this.currentKeyword});
 }
 
 //chargement des données
@@ -25,4 +29,8 @@ class SearchUsersErrorState extends UsersState {
 }
 
 //state initial
-class UsersInitialState extends UsersState {}
+class UsersInitialState extends UsersState {
+  ListUsers listUsers;
+
+  UsersInitialState({this.listUsers});
+}
