@@ -52,6 +52,8 @@ class _UsersPageState extends State<UsersPage> {
         BlocBuilder<UsersBloc, UsersState>(builder: (context, state) {
           if (state is SearchUsersLoadingState) {
             return Center(
+              // heightFactor: MediaQuery.of(context).size.height*0.2,
+              heightFactor: 5,
               child: CircularProgressIndicator(),
             );
           } else if (state is SearchUsersErrorState) {
@@ -71,7 +73,9 @@ class _UsersPageState extends State<UsersPage> {
               child: Column(
                 children: [
                   Text(
-                    state.currentPage!=null?"Page ${state.currentPage}/${state.totalPages}":"",
+                    state.currentPage != null
+                        ? "Page ${state.currentPage}/${state.totalPages}"
+                        : "",
                     style: TextStyle(color: Colors.blue, fontSize: 20),
                   ),
                   Expanded(

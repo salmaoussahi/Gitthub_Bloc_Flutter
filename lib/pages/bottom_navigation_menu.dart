@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:githubbloc/github.repo/pages/github.repo.page.dart';
+import 'package:githubbloc/github.user/pages/github.repo.page.dart';
 import 'package:githubbloc/github.user/pages/github.users.page.dart';
 import 'package:githubbloc/main.dart';
 import 'package:githubbloc/pages/home.page.dart';
@@ -43,7 +43,7 @@ class _BottomNavigationBarMenuState extends State<BottomNavigationBarMenu> {
             SizedBox(
               width: 20,
             ),
-            Text('Github App'),
+            Text('Github App',style: TextStyle(color: Colors.white),),
           ],
         ),
         backgroundColor: Colors.black,

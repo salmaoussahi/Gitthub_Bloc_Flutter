@@ -12,6 +12,8 @@ class SearchUsersEvent extends UserEvent {
 
 class SearchAllUsersEvent extends UserEvent {}
 
+class MostRatedRepoEvent extends UserEvent {}
+
 class NextPageEvent extends SearchUsersEvent {
   NextPageEvent({String keyword, int page, int pageSize})
       : super(keyword: keyword, page: page, pageSize: pageSize);

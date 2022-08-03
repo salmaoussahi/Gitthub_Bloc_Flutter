@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:githubbloc/github.user/bloc/user.event.dart';
+import 'package:githubbloc/github.user/models/repo.models.dart';
 import 'package:githubbloc/github.user/models/users.models.dart';
 
 abstract class UsersState {}
@@ -14,9 +15,16 @@ class SearchUsersSuccessState extends UsersState {
   SearchUsersSuccessState(
       {this.listUsers,
       this.currentPage,
-      this.totalPages,
+      this.totalPages, 
       this.pageSize,
       this.currentKeyword});
+}
+
+class RepoSuccessState extends UsersState {
+  ListRepo listrepo;
+  RepoSuccessState({
+    this.listrepo,
+  });
 }
 
 //chargement des données

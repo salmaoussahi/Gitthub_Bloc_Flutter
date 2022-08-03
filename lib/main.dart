@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
         valueListenable: themeNotifier,
          builder: (_, ThemeMode currentMode, __) {
           return MaterialApp(
-            // Remove the debug banner
             debugShowCheckedModeBanner: false,
             title: 'Github App',
             theme: ThemeData(primarySwatch: Colors.amber),

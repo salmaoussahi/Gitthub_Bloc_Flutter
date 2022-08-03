@@ -33,7 +33,7 @@ class Items {
   String name;
   String fullName;
   bool private;
-  Owner owner;
+  // Owner owner;
   String htmlUrl;
   String description;
   bool fork;
@@ -96,7 +96,7 @@ class Items {
   bool archived;
   bool disabled;
   int openIssuesCount;
-  License license;
+  // License license;
   bool allowForking;
   bool isTemplate;
   bool webCommitSignoffRequired;
@@ -106,7 +106,7 @@ class Items {
   int openIssues;
   int watchers;
   String defaultBranch;
-  int score;
+  double score;
 
   Items(
       {this.id,
@@ -114,7 +114,7 @@ class Items {
       this.name,
       this.fullName,
       this.private,
-      this.owner,
+      // this.owner,
       this.htmlUrl,
       this.description,
       this.fork,
@@ -177,7 +177,7 @@ class Items {
       this.archived,
       this.disabled,
       this.openIssuesCount,
-      this.license,
+      // this.license,
       this.allowForking,
       this.isTemplate,
       this.webCommitSignoffRequired,
@@ -195,7 +195,6 @@ class Items {
     name = json['name'];
     fullName = json['full_name'];
     private = json['private'];
-    owner = json['owner'] ;
     htmlUrl = json['html_url'];
     description = json['description'];
     fork = json['fork'];
@@ -258,8 +257,7 @@ class Items {
     archived = json['archived'];
     disabled = json['disabled'];
     openIssuesCount = json['open_issues_count'];
-    license =
-        json['license'] ;
+  
     allowForking = json['allow_forking'];
     isTemplate = json['is_template'];
     webCommitSignoffRequired = json['web_commit_signoff_required'];
@@ -279,9 +277,9 @@ class Items {
     data['name'] = this.name;
     data['full_name'] = this.fullName;
     data['private'] = this.private;
-    if (this.owner != null) {
-      data['owner'] = this.owner.toJson();
-    }
+    // if (this.owner != null) {
+    //   data['owner'] = this.owner.toJson();
+    // }
     data['html_url'] = this.htmlUrl;
     data['description'] = this.description;
     data['fork'] = this.fork;
@@ -344,9 +342,7 @@ class Items {
     data['archived'] = this.archived;
     data['disabled'] = this.disabled;
     data['open_issues_count'] = this.openIssuesCount;
-    if (this.license != null) {
-      data['license'] = this.license.toJson();
-    }
+  
     data['allow_forking'] = this.allowForking;
     data['is_template'] = this.isTemplate;
     data['web_commit_signoff_required'] = this.webCommitSignoffRequired;
@@ -446,30 +442,4 @@ class Owner {
   }
 }
 
-class License {
-  String key;
-  String name;
-  String spdxId;
-  String url;
-  String nodeId;
-
-  License({this.key, this.name, this.spdxId, this.url, this.nodeId});
-
-  License.fromJson(Map<String, dynamic> json) {
-    key = json['key'];
-    name = json['name'];
-    spdxId = json['spdx_id'];
-    url = json['url'];
-    nodeId = json['node_id'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['key'] = this.key;
-    data['name'] = this.name;
-    data['spdx_id'] = this.spdxId;
-    data['url'] = this.url;
-    data['node_id'] = this.nodeId;
-    return data;
-  }
-}
+ 
